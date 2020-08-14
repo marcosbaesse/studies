@@ -1,4 +1,5 @@
 ﻿using System;
+using publisher;
 
 namespace benchmark
 {
@@ -6,7 +7,7 @@ namespace benchmark
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            SimplePublisher.Publish("Hello World");
         }
     }
 }
