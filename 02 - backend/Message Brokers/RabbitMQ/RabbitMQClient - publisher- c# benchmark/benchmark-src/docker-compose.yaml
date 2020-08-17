@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    deploy:
+      resources:
+        limits:
+          memory: 600M
+        reservations:
+          memory: 600M
+  benchmark:
+      build: .
+      restart: unless-stopped
+      depends_on:
+        - rabbitmq
+      links:
+        - rabbitmq
